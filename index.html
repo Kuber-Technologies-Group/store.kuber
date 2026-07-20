@@ -1,741 +1,1901 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kuber Store — Domains, Hosting, Hardware &amp; ICT Services</title>
-<meta name="description" content="The Kuber Technologies store: domains, business email hosting, ICT hardware &amp; accessories, and technology services.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --primary-blue:#0F3F7A;
-    --accent-blue:#1660B8;
-    --bright-accent:#00A9E0;
-    --warm-gold:#D89A2A;
-    --charcoal:#1F2933;
-    --soft-gray:#F6F7F9;
-    --muted-gray:#E6E9EE;
-    --white:#FFFFFF;
-    --muted-text:#5B6572;
-    --danger:#C4432F;
-    --success:#1E8A5F;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{margin:0;background:var(--soft-gray);color:var(--charcoal);font-family:'Roboto','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;-webkit-font-smoothing:antialiased;}
-  h1,h2,h3{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-weight:700;margin:0;letter-spacing:-0.01em;color:var(--primary-blue);}
-  a{color:var(--accent-blue);}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 28px;}
-  button{font-family:inherit;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuber Store — Domains, Hosting, Hardware &amp; ICT Services</title>
+  <meta name="description"
+    content="The Kuber Technologies store: domains, business email hosting, ICT hardware &amp; accessories, and technology services.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #0F3F7A;
+      --accent-blue: #1660B8;
+      --bright-accent: #00A9E0;
+      --warm-gold: #D89A2A;
+      --charcoal: #1F2933;
+      --soft-gray: #F6F7F9;
+      --muted-gray: #E6E9EE;
+      --white: #FFFFFF;
+      --muted-text: #5B6572;
+      --danger: #C4432F;
+      --success: #1E8A5F;
+    }
 
-  /* header */
-  header{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid var(--muted-gray);}
-  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:20px;}
-  .brand{display:flex;align-items:center;gap:10px;cursor:pointer;}
-  .brand svg{display:block;height:32px;width:auto;}
-  nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap;}
-  nav .navlink{font-size:14px;color:var(--muted-text);font-weight:500;background:none;border:none;cursor:pointer;padding:6px 0;border-bottom:2px solid transparent;}
-  nav .navlink:hover{color:var(--primary-blue);}
-  nav .navlink.active{color:var(--primary-blue);border-bottom-color:var(--warm-gold);}
-  .header-right{display:flex;align-items:center;gap:14px;}
-  .cart-btn{position:relative;background:var(--accent-blue);color:#fff;border:none;padding:9px 16px;border-radius:8px;font-weight:600;font-size:13.5px;cursor:pointer;}
-  .cart-btn:hover{background:var(--primary-blue);}
-  .cart-count{position:absolute;top:-7px;right:-7px;background:var(--warm-gold);color:#fff;font-size:11px;font-weight:700;width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+    * {
+      box-sizing: border-box;
+    }
 
-  /* pages */
-  .page{display:none;}
-  .page.active{display:block;}
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* shared bits */
-  .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--bright-accent);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
-  .eyebrow::before{content:"";width:24px;height:2px;background:var(--warm-gold);display:inline-block;border-radius:2px;}
-  .section{padding:64px 0;}
-  .section-head{max-width:620px;margin-bottom:40px;}
-  .section-head h2{font-size:clamp(24px,3vw,32px);}
-  .section-head p{color:var(--muted-text);margin-top:12px;font-size:15px;line-height:1.6;}
-  .btn{display:inline-block;background:var(--accent-blue);color:#fff;border:none;padding:12px 22px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none;}
-  .btn:hover{background:var(--primary-blue);}
-  .btn-outline{background:transparent;border:1.5px solid var(--white);color:#fff;}
-  .btn-outline:hover{background:rgba(255,255,255,0.12);}
+    body {
+      margin: 0;
+      background: var(--soft-gray);
+      color: var(--charcoal);
+      font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  /* --- HOME --- */
-  .hero-home{padding:74px 0 60px;background:linear-gradient(180deg,#0F3F7A 0%, #123f7d 60%, #EEF3FA 100%);color:#fff;}
-  .hero-home h1{color:#fff;font-size:clamp(32px,5vw,52px);line-height:1.1;max-width:720px;}
-  .hero-home p.lede{max-width:560px;margin-top:18px;font-size:16.5px;line-height:1.6;color:#CFE0F5;}
-  .hero-home .tagline{margin-top:8px;font-size:13.5px;color:var(--warm-gold);font-weight:700;letter-spacing:0.03em;}
-  .hero-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;}
-  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px;}
-  .cat-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:12px;padding:22px;cursor:pointer;transition:background .15s;}
-  .cat-card:hover{background:rgba(255,255,255,0.15);}
-  .cat-card .icon{font-size:22px;}
-  .cat-card h3{color:#fff;font-size:16px;margin-top:12px;}
-  .cat-card p{color:#CFE0F5;font-size:13px;margin-top:6px;line-height:1.5;}
+    h1,
+    h2,
+    h3 {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.01em;
+      color: var(--primary-blue);
+    }
 
-  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  .why-item{background:var(--white);border:1px solid var(--muted-gray);border-radius:10px;padding:20px;font-size:14px;color:var(--muted-text);}
-  .why-item b{display:block;color:var(--primary-blue);font-size:15px;margin-bottom:6px;}
+    a {
+      color: var(--accent-blue);
+    }
 
-  /* --- product / plan / catalog cards --- */
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;}
-  .card{background:var(--white);border:1px solid var(--muted-gray);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:10px;}
-  .card h3{font-size:16px;color:var(--charcoal);font-weight:700;}
-  .card .price{font-size:20px;font-weight:700;color:var(--primary-blue);}
-  .card .price span{font-size:12px;color:var(--muted-text);font-weight:400;}
-  .card ul{margin:0;padding-left:18px;font-size:13px;color:var(--muted-text);line-height:1.7;}
-  .card p.desc{font-size:13.5px;color:var(--muted-text);line-height:1.55;}
-  .card .add-btn{margin-top:auto;background:var(--accent-blue);color:#fff;border:none;padding:10px 14px;font-weight:700;font-size:13.5px;border-radius:8px;cursor:pointer;}
-  .card .add-btn:hover{background:var(--primary-blue);}
-  .card.featured{border-top:4px solid var(--warm-gold);}
-  .cat-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--bright-accent);margin:34px 0 14px;}
-  .cat-label:first-child{margin-top:0;}
+    .wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
 
-  /* domain search (reused) */
-  .search-card{background:var(--white);border:1px solid var(--muted-gray);border-radius:12px;max-width:780px;box-shadow:0 12px 32px -18px rgba(15,63,122,0.25);overflow:hidden;margin-bottom:8px;}
-  .search-card-head{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:var(--primary-blue);color:#fff;}
-  .search-card-head .label{font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}
-  .search-card-head .badge{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;}
-  .search-card-body{padding:22px;}
-  .search-row{display:flex;gap:10px;flex-wrap:wrap;}
-  .search-row input[type=text]{flex:1;min-width:220px;border:1.5px solid var(--muted-gray);background:#fff;padding:14px 16px;font-size:16px;border-radius:8px;color:var(--charcoal);}
-  .search-row input[type=text]:focus{outline:none;border-color:var(--accent-blue);}
-  .search-row button{background:var(--accent-blue);color:#fff;border:none;padding:14px 26px;font-weight:700;font-size:14px;border-radius:8px;cursor:pointer;}
-  .search-row button:hover{background:var(--primary-blue);}
-  .tld-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
-  .chip{font-size:13px;font-weight:600;padding:7px 14px;border-radius:20px;border:1.5px solid var(--muted-gray);cursor:pointer;background:transparent;color:var(--muted-text);}
-  .chip.active{background:var(--bright-accent);color:#fff;border-color:var(--bright-accent);}
-  #domResults{margin-top:32px;}
-  #domResults.hidden{display:none;}
-  .dcard{background:var(--white);border:1px solid var(--muted-gray);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;border-top:4px solid var(--success);}
-  .dcard.taken{border-top-color:var(--danger);opacity:0.65;}
-  .dcard.premium{border-top-color:var(--warm-gold);}
-  .dcard .domain{font-size:16px;font-weight:700;color:var(--primary-blue);word-break:break-all;}
-  .dcard .status{font-size:12px;font-weight:700;text-transform:uppercase;}
-  .dcard.avail .status{color:var(--success);}
-  .dcard.taken .status{color:var(--danger);}
-  .dcard.premium .status{color:#96731c;}
-  .dcard .note{font-size:12px;color:var(--muted-text);}
+    button {
+      font-family: inherit;
+    }
 
-  /* services / quote cards */
-  .svc-card{background:var(--white);border:1px solid var(--muted-gray);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:10px;}
-  .svc-card h3{font-size:16.5px;}
-  .svc-card p{font-size:13.5px;color:var(--muted-text);line-height:1.6;}
-  .svc-card .quote-btn{margin-top:auto;background:transparent;border:1.5px solid var(--accent-blue);color:var(--accent-blue);padding:10px 14px;border-radius:8px;font-weight:700;font-size:13.5px;cursor:pointer;}
-  .svc-card .quote-btn:hover{background:var(--accent-blue);color:#fff;}
+    /* header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--white);
+      border-bottom: 1px solid var(--muted-gray);
+    }
 
-  /* cart */
-  .cart-table{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--muted-gray);border-radius:10px;overflow:hidden;}
-  .cart-table th,.cart-table td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--muted-gray);font-size:14px;}
-  .cart-table th{font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted-text);background:var(--soft-gray);}
-  .cart-table .rm{background:none;border:none;color:var(--danger);cursor:pointer;font-size:13px;font-weight:600;}
-  .cart-empty{text-align:center;padding:60px 20px;color:var(--muted-text);}
-  .cart-summary{display:flex;justify-content:flex-end;margin-top:18px;}
-  .cart-summary .total{font-size:19px;font-weight:700;color:var(--primary-blue);}
-  .checkout-box{background:var(--white);border:1px solid var(--muted-gray);border-radius:12px;padding:26px;max-width:480px;margin-top:36px;}
-  .checkout-box label{display:block;font-size:12px;margin-top:14px;margin-bottom:5px;color:var(--muted-text);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;}
-  .checkout-box input,.checkout-box textarea{width:100%;padding:11px 12px;border:1.5px solid var(--muted-gray);border-radius:8px;font-size:14.5px;font-family:'Roboto',sans-serif;}
-  .checkout-box input:focus,.checkout-box textarea:focus{outline:none;border-color:var(--accent-blue);}
-  .checkout-box .submit-btn{margin-top:20px;width:100%;background:var(--accent-blue);color:#fff;border:none;padding:13px;font-weight:700;border-radius:8px;cursor:pointer;font-size:14.5px;}
-  .checkout-box .submit-btn:hover{background:var(--primary-blue);}
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      gap: 20px;
+    }
 
-  /* trust strip + footer */
-  .trust{background:var(--primary-blue);padding:28px 0;}
-  .trust-row{display:flex;gap:36px;flex-wrap:wrap;justify-content:space-between;align-items:center;}
-  .trust-item{display:flex;gap:10px;align-items:center;font-size:13.5px;color:#CFE0F5;}
-  .trust-item b{color:#fff;font-weight:700;}
-  footer{padding:50px 0 36px;background:#0C3465;color:#CFE0F5;}
-  footer h1,footer h2,footer h3{color:#fff;}
-  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;}
-  .foot-col h4{font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:#8FB3DD;margin-bottom:14px;font-weight:700;}
-  .foot-col a,.foot-col button.navlink2{display:block;font-size:14px;color:#fff;text-decoration:none;margin-bottom:9px;opacity:0.88;background:none;border:none;padding:0;cursor:pointer;font-family:inherit;text-align:left;}
-  .foot-col a:hover,.foot-col button.navlink2:hover{opacity:1;text-decoration:underline;}
-  .foot-bottom{margin-top:44px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:#8FB3DD;}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
 
-  /* modal (domain reserve + quote request) */
-  .modal-bg{position:fixed;inset:0;background:rgba(15,29,41,0.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:70;}
-  .modal-bg.open{display:flex;}
-  .modal{background:var(--white);color:var(--charcoal);border-radius:12px;max-width:440px;width:100%;padding:28px;position:relative;}
-  .modal h3{font-size:20px;margin-bottom:6px;}
-  .modal .sub{color:var(--accent-blue);font-weight:700;margin-bottom:16px;font-size:14px;}
-  .modal label{display:block;font-size:12px;margin-top:14px;margin-bottom:5px;color:var(--muted-text);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;}
-  .modal input,.modal textarea{width:100%;padding:11px 12px;border:1.5px solid var(--muted-gray);border-radius:8px;font-size:14.5px;font-family:'Roboto',sans-serif;}
-  .modal input:focus,.modal textarea:focus{outline:none;border-color:var(--accent-blue);}
-  .modal .submit-btn{margin-top:20px;width:100%;background:var(--accent-blue);color:#fff;border:none;padding:13px;font-weight:700;border-radius:8px;cursor:pointer;font-size:14.5px;}
-  .modal .submit-btn:hover{background:var(--primary-blue);}
-  .modal .close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted-text);}
-  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--charcoal);color:#fff;padding:12px 22px;border-radius:8px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:all .25s;z-index:80;}
-  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+    .brand svg {
+      display: block;
+      height: 32px;
+      width: auto;
+    }
 
-  @media(max-width:900px){
-    .cat-grid{grid-template-columns:repeat(2,1fr);}
-    .why-grid{grid-template-columns:1fr;}
-  }
-  @media(max-width:760px){
-    nav{display:none;}
-    .cat-grid{grid-template-columns:1fr;}
-  }
-</style>
+    nav {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav .navlink {
+      font-size: 14px;
+      color: var(--muted-text);
+      font-weight: 500;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav .navlink:hover {
+      color: var(--primary-blue);
+    }
+
+    nav .navlink.active {
+      color: var(--primary-blue);
+      border-bottom-color: var(--warm-gold);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cart-btn {
+      position: relative;
+      background: var(--accent-blue);
+      color: #fff;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13.5px;
+      cursor: pointer;
+    }
+
+    .cart-btn:hover {
+      background: var(--primary-blue);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -7px;
+      right: -7px;
+      background: var(--warm-gold);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* pages */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* shared bits */
+    .eyebrow {
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bright-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: var(--warm-gold);
+      display: inline-block;
+      border-radius: 2px;
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .section-head {
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(24px, 3vw, 32px);
+    }
+
+    .section-head p {
+      color: var(--muted-text);
+      margin-top: 12px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent-blue);
+      color: #fff;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--primary-blue);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--white);
+      color: #fff;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* --- HOME --- */
+    .hero-home {
+      padding: 74px 0 68px;
+      background: #0F3F7A;
+      color: #fff;
+    }
+
+    .hero-home h1 {
+      color: #fff;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.1;
+      max-width: 720px;
+    }
+
+    .hero-home p.lede {
+      max-width: 560px;
+      margin-top: 18px;
+      font-size: 16.5px;
+      line-height: 1.6;
+      color: #CFE0F5;
+    }
+
+    .hero-home .tagline {
+      margin-top: 8px;
+      font-size: 13.5px;
+      color: var(--warm-gold);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .cat-card {
+      background: var(--white);
+      border: 1px solid var(--muted-gray);
+      border-radius: 12px;
+      padding: 22px;
+      cursor: pointer;
+      transition: box-shadow .15s, border-color .15s;
+    }
+
+    .cat-card:hover {
+      box-shadow: 0 10px 24px -14px rgba(15, 63, 122, 0.35);
+      border-color: var(--bright-accent);
+    }
+
+    .cat-card .icon {
+      font-size: 24px;
+    }
+
+    .cat-card h3 {
+      color: var(--primary-blue);
+      font-size: 16px;
+      margin-top: 12px;
+    }
+
+    .cat-card p {
+      color: var(--muted-text);
+      font-size: 13px;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .why-item {
+      background: var(--white);
+      border: 1px solid var(--muted-gray);
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 14px;
+      color: var(--muted-text);
+    }
+
+    .why-item b {
+      display: block;
+      color: var(--primary-blue);
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    /* --- product / plan / catalog cards --- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--muted-gray);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      color: var(--charcoal);
+      font-weight: 700;
+    }
+
+    .card .price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary-blue);
+    }
+
+    .card .price span {
+      font-size: 12px;
+      color: var(--muted-text);
+      font-weight: 400;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 13px;
+      color: var(--muted-text);
+      line-height: 1.7;
+    }
+
+    .card p.desc {
+      font-size: 13.5px;
+      color: var(--muted-text);
+      line-height: 1.55;
+    }
+
+    .card .add-btn {
+      margin-top: auto;
+      background: var(--accent-blue);
+      color: #fff;
+      border: none;
+      padding: 10px 14px;
+      font-weight: 700;
+      font-size: 13.5px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .card .add-btn:hover {
+      background: var(--primary-blue);
+    }
+
+    .card.featured {
+      border-top: 4px solid var(--warm-gold);
+    }
+
+    .cat-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--bright-accent);
+      margin: 34px 0 14px;
+    }
+
+    .cat-label:first-child {
+      margin-top: 0;
+    }
+
+    /* hardware: breadcrumb, subcategory tiles, product detail */
+    .breadcrumb {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted-text);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb button {
+      background: none;
+      border: none;
+      color: var(--accent-blue);
+      font-size: 13px;
+      cursor: pointer;
+      padding: 0;
+      font-weight: 600;
+    }
+
+    .breadcrumb button:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span.sep {
+      color: var(--muted-gray);
+    }
+
+    .breadcrumb span.current {
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+
+    .subcat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .subcat-card {
+      background: var(--white);
+      border: 1px solid var(--muted-gray);
+      border-radius: 10px;
+      padding: 20px;
+      cursor: pointer;
+      transition: box-shadow .15s, border-color .15s;
+    }
+
+    .subcat-card:hover {
+      box-shadow: 0 10px 24px -14px rgba(15, 63, 122, 0.35);
+      border-color: var(--bright-accent);
+    }
+
+    .subcat-card .icon {
+      font-size: 26px;
+    }
+
+    .subcat-card h3 {
+      font-size: 15.5px;
+      margin-top: 10px;
+      color: var(--primary-blue);
+    }
+
+    .subcat-card p {
+      font-size: 12.5px;
+      color: var(--muted-text);
+      margin-top: 5px;
+    }
+
+    .subcat-card .count {
+      font-size: 11.5px;
+      color: var(--bright-accent);
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .prod-card {
+      cursor: pointer;
+    }
+
+    .prod-card .thumb {
+      font-size: 34px;
+      background: var(--soft-gray);
+      border-radius: 8px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .prod-detail {
+      display: flex;
+      gap: 32px;
+      background: var(--white);
+      border: 1px solid var(--muted-gray);
+      border-radius: 12px;
+      padding: 30px;
+      flex-wrap: wrap;
+    }
+
+    .prod-detail .thumb-lg {
+      font-size: 64px;
+      background: var(--soft-gray);
+      border-radius: 10px;
+      width: 220px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .prod-detail .info {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .prod-detail h2 {
+      font-size: 22px;
+    }
+
+    .prod-detail .price {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-top: 10px;
+    }
+
+    .prod-detail .desc {
+      font-size: 14.5px;
+      color: var(--muted-text);
+      line-height: 1.6;
+      margin-top: 14px;
+    }
+
+    .prod-detail .specs {
+      margin-top: 16px;
+      padding-left: 18px;
+      font-size: 13.5px;
+      color: var(--muted-text);
+      line-height: 1.8;
+    }
+
+    .qty-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .qty-row button {
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      border: 1.5px solid var(--muted-gray);
+      background: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      color: var(--charcoal);
+    }
+
+    .qty-row span {
+      font-weight: 700;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* domain search (reused) */
+    .search-card {
+      background: var(--white);
+      border: 1px solid var(--muted-gray);
+      border-radius: 12px;
+      max-width: 780px;
+      box-shadow: 0 12px 32px -18px rgba(15, 63, 122, 0.25);
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .search-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 22px;
+      background: var(--primary-blue);
+      color: #fff;
+    }
+
+    .search-card-head .label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .search-card-head .badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .search-card-body {
+      padding: 22px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-row input[type=text] {
+      flex: 1;
+      min-width: 220px;
+      border: 1.5px solid var(--muted-gray);
+      background: #fff;
+      padding: 14px 16px;
+      font-size: 16px;
+      border-radius: 8px;
+      color: var(--charcoal);
+    }
+
+    .search-row input[type=text]:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+    }
+
+    .search-row button {
+      background: var(--accent-blue);
+      color: #fff;
+      border: none;
+      padding: 14px 26px;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .search-row button:hover {
+      background: var(--primary-blue);
+    }
+
+    .tld-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .chip {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 20px;
+      border: 1.5px solid var(--muted-gray);
+      cursor: pointer;
+      background: transparent;
+      color: var(--muted-text);
+    }
+
+    .chip.active {
+      background: var(--bright-accent);
+      color: #fff;
+      border-color: var(--bright-accent);
+    }
+
+    #domResults {
+      margin-top: 32px;
+    }
+
+    #domResults.hidden {
+      display: none;
+    }
+
+    .dcard {
+      background: var(--white);
+      border: 1px solid var(--muted-gray);
+      border-radius: 10px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-top: 4px solid var(--success);
+    }
+
+    .dcard.taken {
+      border-top-color: var(--danger);
+      opacity: 0.65;
+    }
+
+    .dcard.premium {
+      border-top-color: var(--warm-gold);
+    }
+
+    .dcard .domain {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      word-break: break-all;
+    }
+
+    .dcard .status {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .dcard.avail .status {
+      color: var(--success);
+    }
+
+    .dcard.taken .status {
+      color: var(--danger);
+    }
+
+    .dcard.premium .status {
+      color: #96731c;
+    }
+
+    .dcard .note {
+      font-size: 12px;
+      color: var(--muted-text);
+    }
+
+    /* services / quote cards */
+    .svc-card {
+      background: var(--white);
+      border: 1px solid var(--muted-gray);
+      border-radius: 10px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .svc-card h3 {
+      font-size: 16.5px;
+    }
+
+    .svc-card p {
+      font-size: 13.5px;
+      color: var(--muted-text);
+      line-height: 1.6;
+    }
+
+    .svc-card .quote-btn {
+      margin-top: auto;
+      background: transparent;
+      border: 1.5px solid var(--accent-blue);
+      color: var(--accent-blue);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+    }
+
+    .svc-card .quote-btn:hover {
+      background: var(--accent-blue);
+      color: #fff;
+    }
+
+    /* cart */
+    .cart-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border: 1px solid var(--muted-gray);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .cart-table th,
+    .cart-table td {
+      text-align: left;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--muted-gray);
+      font-size: 14px;
+    }
+
+    .cart-table th {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted-text);
+      background: var(--soft-gray);
+    }
+
+    .cart-table .rm {
+      background: none;
+      border: none;
+      color: var(--danger);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .cart-empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted-text);
+    }
+
+    .cart-summary {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 18px;
+    }
+
+    .cart-summary .total {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--primary-blue);
+    }
+
+    .checkout-box {
+      background: var(--white);
+      border: 1px solid var(--muted-gray);
+      border-radius: 12px;
+      padding: 26px;
+      max-width: 480px;
+      margin-top: 36px;
+    }
+
+    .checkout-box label {
+      display: block;
+      font-size: 12px;
+      margin-top: 14px;
+      margin-bottom: 5px;
+      color: var(--muted-text);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .checkout-box input,
+    .checkout-box textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1.5px solid var(--muted-gray);
+      border-radius: 8px;
+      font-size: 14.5px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .checkout-box input:focus,
+    .checkout-box textarea:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+    }
+
+    .checkout-box .submit-btn {
+      margin-top: 20px;
+      width: 100%;
+      background: var(--accent-blue);
+      color: #fff;
+      border: none;
+      padding: 13px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14.5px;
+    }
+
+    .checkout-box .submit-btn:hover {
+      background: var(--primary-blue);
+    }
+
+    /* trust strip + footer */
+    .trust {
+      background: var(--primary-blue);
+      padding: 28px 0;
+    }
+
+    .trust-row {
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .trust-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 13.5px;
+      color: #CFE0F5;
+    }
+
+    .trust-item b {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 50px 0 36px;
+      background: #0C3465;
+      color: #CFE0F5;
+    }
+
+    footer h1,
+    footer h2,
+    footer h3 {
+      color: #fff;
+    }
+
+    .foot-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .foot-col h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #8FB3DD;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .foot-col a,
+    .foot-col button.navlink2 {
+      display: block;
+      font-size: 14px;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 9px;
+      opacity: 0.88;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: inherit;
+      text-align: left;
+    }
+
+    .foot-col a:hover,
+    .foot-col button.navlink2:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .foot-bottom {
+      margin-top: 44px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12.5px;
+      color: #8FB3DD;
+    }
+
+    /* modal (domain reserve + quote request) */
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 29, 41, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 70;
+    }
+
+    .modal-bg.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--white);
+      color: var(--charcoal);
+      border-radius: 12px;
+      max-width: 440px;
+      width: 100%;
+      padding: 28px;
+      position: relative;
+    }
+
+    .modal h3 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .modal .sub {
+      color: var(--accent-blue);
+      font-weight: 700;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .modal label {
+      display: block;
+      font-size: 12px;
+      margin-top: 14px;
+      margin-bottom: 5px;
+      color: var(--muted-text);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .modal input,
+    .modal textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1.5px solid var(--muted-gray);
+      border-radius: 8px;
+      font-size: 14.5px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .modal input:focus,
+    .modal textarea:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+    }
+
+    .modal .submit-btn {
+      margin-top: 20px;
+      width: 100%;
+      background: var(--accent-blue);
+      color: #fff;
+      border: none;
+      padding: 13px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14.5px;
+    }
+
+    .modal .submit-btn:hover {
+      background: var(--primary-blue);
+    }
+
+    .modal .close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--muted-text);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--charcoal);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transition: all .25s;
+      z-index: 80;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media(max-width:900px) {
+      .cat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .subcat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:760px) {
+      nav {
+        display: none;
+      }
+
+      .cat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .subcat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .prod-detail {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <div class="wrap header-inner">
-    <div class="brand" onclick="showPage('home')">
-      <svg viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg" overflow="hidden">
-        <rect x="6" y="6" rx="8" width="48" height="68" fill="#0F3F7A"/>
-        <path d="M38 18 58 40 38 62" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" fill="none"/>
-        <text fill="#0F3F7A" font-family="Inter,Roboto,Arial" font-weight="700" font-size="32" x="80" y="50">Kuber</text>
-      </svg>
+  <header>
+    <div class="wrap header-inner">
+      <div class="brand" onclick="showPage('home')">
+        <svg viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg" overflow="hidden">
+          <rect x="6" y="6" rx="8" width="48" height="68" fill="#0F3F7A" />
+          <path d="M38 18 58 40 38 62" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" fill="none" />
+          <text fill="#0F3F7A" font-family="Inter,Roboto,Arial" font-weight="700" font-size="32" x="80"
+            y="50">Kuber</text>
+        </svg>
+      </div>
+      <nav>
+        <button class="navlink" data-page="home" onclick="showPage('home')">Home</button>
+        <button class="navlink" data-page="domains" onclick="showPage('domains')">Domains</button>
+        <button class="navlink" data-page="hosting" onclick="showPage('hosting')">Email Hosting</button>
+        <button class="navlink" data-page="hardware" onclick="showPage('hardware')">Hardware &amp; Accessories</button>
+        <button class="navlink" data-page="services" onclick="showPage('services')">ICT Services</button>
+      </nav>
+      <div class="header-right">
+        <button class="cart-btn" onclick="showPage('cart')">Cart <span class="cart-count"
+            id="cartCount">0</span></button>
+      </div>
     </div>
-    <nav>
-      <button class="navlink" data-page="home" onclick="showPage('home')">Home</button>
-      <button class="navlink" data-page="domains" onclick="showPage('domains')">Domains</button>
-      <button class="navlink" data-page="hosting" onclick="showPage('hosting')">Email Hosting</button>
-      <button class="navlink" data-page="hardware" onclick="showPage('hardware')">Hardware &amp; Accessories</button>
-      <button class="navlink" data-page="services" onclick="showPage('services')">ICT Services</button>
-    </nav>
-    <div class="header-right">
-      <button class="cart-btn" onclick="showPage('cart')">Cart <span class="cart-count" id="cartCount">0</span></button>
-    </div>
-  </div>
-</header>
+  </header>
 
-<!-- ================= HOME ================= -->
-<section class="page active" id="page-home">
-  <div class="hero-home">
-    <div class="wrap">
-      <div class="eyebrow" style="color:#7FD4F2;">Kuber Intelligent Tech Systems (Pvt) Ltd</div>
-      <h1>Technology that works. Solutions that grow businesses.</h1>
-      <p class="lede">Domains, business email, ICT hardware, and end-to-end technology services — all from one Zimbabwean technology partner.</p>
-      <p class="tagline">EMPOWERING SMART BUSINESS GROWTH</p>
-      <div class="hero-actions">
-        <button class="btn" onclick="showPage('domains')">Search a domain</button>
-        <button class="btn btn-outline" onclick="showPage('services')">Request a quote</button>
-      </div>
-
-      <div class="cat-grid">
-        <div class="cat-card" onclick="showPage('domains')">
-          <div class="icon">🌐</div>
-          <h3>Domains</h3>
-          <p>.co.zw, .com &amp; international domain search and registration.</p>
-        </div>
-        <div class="cat-card" onclick="showPage('hosting')">
-          <div class="icon">📧</div>
-          <h3>Email Hosting</h3>
-          <p>Secure, business-grade mailboxes on your own domain.</p>
-        </div>
-        <div class="cat-card" onclick="showPage('hardware')">
-          <div class="icon">🖥️</div>
-          <h3>Hardware &amp; Accessories</h3>
-          <p>Computers, networking, security, power, and office supplies.</p>
-        </div>
-        <div class="cat-card" onclick="showPage('services')">
-          <div class="icon">⚙️</div>
-          <h3>ICT Services</h3>
-          <p>Software, AI, cybersecurity, cloud, and consultancy — on request.</p>
+  <!-- ================= HOME ================= -->
+  <section class="page active" id="page-home">
+    <div class="hero-home">
+      <div class="wrap">
+        <div class="eyebrow" style="color:#7FD4F2;">Kuber Intelligent Tech Systems (Pvt) Ltd</div>
+        <h1>Technology that works. Solutions that grow businesses.</h1>
+        <p class="lede">Domains, business email, ICT hardware, and end-to-end technology services — all from one
+          Zimbabwean technology partner.</p>
+        <p class="tagline">EMPOWERING SMART BUSINESS GROWTH</p>
+        <div class="hero-actions">
+          <button class="btn" onclick="showPage('domains')">Search a domain</button>
+          <button class="btn btn-outline" onclick="showPage('services')">Request a quote</button>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Why Kuber</div>
-        <h2>A single technology partner, not another vendor to manage.</h2>
-        <p>From your domain name to the laptops on your team's desks, Kuber Intelligent Tech Systems supports the full stack — with local, Zimbabwe-based support behind every part of it.</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-item"><b>Experienced &amp; reliable</b>Experienced ICT professionals delivering secure, scalable systems with timely project delivery.</div>
-        <div class="why-item"><b>Customer-centred</b>Competitive pricing and responsive support, built around your organisation's needs.</div>
-        <div class="why-item"><b>End-to-end</b>From a single domain to full digital transformation — one partner for the whole journey.</div>
+    <div class="section" style="padding-bottom:20px;">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Shop by category</div>
+          <h2>Everything your business needs, in one store.</h2>
+        </div>
+        <div class="cat-grid">
+          <div class="cat-card" onclick="showPage('domains')">
+            <div class="icon">🌐</div>
+            <h3>Domains</h3>
+            <p>.co.zw, .com &amp; international domain search and registration.</p>
+          </div>
+          <div class="cat-card" onclick="showPage('hosting')">
+            <div class="icon">📧</div>
+            <h3>Email Hosting</h3>
+            <p>Secure, business-grade mailboxes on your own domain.</p>
+          </div>
+          <div class="cat-card" onclick="showPage('hardware')">
+            <div class="icon">🖥️</div>
+            <h3>Hardware &amp; Accessories</h3>
+            <p>Computers, networking, security, power, and office supplies.</p>
+          </div>
+          <div class="cat-card" onclick="showPage('services')">
+            <div class="icon">⚙️</div>
+            <h3>ICT Services</h3>
+            <p>Software, AI, cybersecurity, cloud, and consultancy — on request.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+
+    <div class="section" style="padding-top:20px;">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Why Kuber</div>
+          <h2>A single technology partner, not another vendor to manage.</h2>
+          <p>From your domain name to the laptops on your team's desks, Kuber Intelligent Tech Systems supports the full
+            stack — with local, Zimbabwe-based support behind every part of it.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-item"><b>Experienced &amp; reliable</b>Experienced ICT professionals delivering secure,
+            scalable systems with timely project delivery.</div>
+          <div class="why-item"><b>Customer-centred</b>Competitive pricing and responsive support, built around your
+            organisation's needs.</div>
+          <div class="why-item"><b>End-to-end</b>From a single domain to full digital transformation — one partner for
+            the whole journey.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust">
+      <div class="wrap trust-row">
+        <div class="trust-item"><b>Government &amp; Education</b>&nbsp;trusted across public and private sectors</div>
+        <div class="trust-item"><b>Healthcare &amp; Finance</b>&nbsp;secure systems for regulated industries</div>
+        <div class="trust-item"><b>SMEs &amp; NGOs</b>&nbsp;affordable, scalable technology support</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DOMAINS ================= -->
+  <section class="page" id="page-domains">
+    <div class="section" style="padding-bottom:20px;">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Domains</div>
+          <h2>Your domain. Your email. Your control.</h2>
+          <p>Search .co.zw and international extensions side by side, with live pricing and clear notes on what needs
+            registry review.</p>
+        </div>
+
+        <div class="search-card">
+          <div class="search-card-head">
+            <span class="label">Domain availability search</span>
+            <span class="badge">KZW</span>
+          </div>
+          <div class="search-card-body">
+            <div class="search-row">
+              <input type="text" id="domainInput" placeholder="yourbusiness" autocomplete="off">
+              <button id="searchBtn">Check availability</button>
+            </div>
+            <div class="tld-chips" id="tldChips">
+              <button class="chip active" data-tld=".co.zw">.co.zw</button>
+              <button class="chip" data-tld=".org.zw">.org.zw</button>
+              <button class="chip active" data-tld=".com">.com</button>
+              <button class="chip" data-tld=".net">.net</button>
+              <button class="chip" data-tld=".africa">.africa</button>
+              <button class="chip" data-tld=".co.za">.co.za</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="domResults" class="hidden">
+          <div class="cat-label" id="domResultsLabel">Results</div>
+          <div class="cards" id="domCards"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="padding-top:0;">
+      <div class="wrap">
+        <div class="cat-label">Pricing snapshot</div>
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Extension</th>
+              <th>Per year</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>.co.zw</td>
+              <td>$15.00</td>
+              <td>ZISPA review, 24–72 hrs — company/ID details required</td>
+            </tr>
+            <tr>
+              <td>.org.zw</td>
+              <td>$15.00</td>
+              <td>For registered organisations and NGOs</td>
+            </tr>
+            <tr>
+              <td>.com</td>
+              <td>$14.00</td>
+              <td>Instant registration</td>
+            </tr>
+            <tr>
+              <td>.net</td>
+              <td>$16.00</td>
+              <td>Instant registration</td>
+            </tr>
+            <tr>
+              <td>.africa</td>
+              <td>$22.00</td>
+              <td>Instant registration</td>
+            </tr>
+            <tr>
+              <td>.co.za</td>
+              <td>$18.00</td>
+              <td>Instant registration</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EMAIL HOSTING ================= -->
+  <section class="page" id="page-hosting">
+    <div class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Email Hosting</div>
+          <h2>Business email that looks as professional as your business is.</h2>
+          <p>Secure mailboxes on your own domain, with migration support and local help when you need it.</p>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <h3>Basic</h3>
+            <div class="price">$5<span> /mailbox/mo</span></div>
+            <ul>
+              <li>5 mailboxes, 10GB each</li>
+              <li>Webmail &amp; mobile access</li>
+              <li>Spam &amp; virus filtering</li>
+              <li>Standard support</li>
+            </ul>
+            <button class="add-btn"
+              onclick="addToCart({id:'host-basic',type:'Email Hosting',label:'Basic Email Hosting Plan',price:5})">Add
+              to cart</button>
+          </div>
+          <div class="card featured">
+            <h3>Business</h3>
+            <div class="price">$12<span> /mailbox/mo</span></div>
+            <ul>
+              <li>25 mailboxes, 25GB each</li>
+              <li>Shared calendar &amp; contacts</li>
+              <li>Migration assistance included</li>
+              <li>Priority support</li>
+            </ul>
+            <button class="add-btn"
+              onclick="addToCart({id:'host-business',type:'Email Hosting',label:'Business Email Hosting Plan',price:12})">Add
+              to cart</button>
+          </div>
+          <div class="card">
+            <h3>Enterprise</h3>
+            <div class="price">$29<span> /mailbox/mo</span></div>
+            <ul>
+              <li>Unlimited mailboxes, 50GB each</li>
+              <li>Admin console &amp; policy controls</li>
+              <li>SLA-backed support</li>
+              <li>Dedicated onboarding</li>
+            </ul>
+            <button class="add-btn"
+              onclick="addToCart({id:'host-enterprise',type:'Email Hosting',label:'Enterprise Email Hosting Plan',price:29})">Add
+              to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HARDWARE & ACCESSORIES ================= -->
+  <section class="page" id="page-hardware">
+    <div class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Hardware &amp; Accessories</div>
+          <h2 id="hwHeading">Quality ICT equipment, sourced from reputable manufacturers.</h2>
+          <p id="hwSubhead">Browse by category — a starter range below, with more available on request.</p>
+        </div>
+        <div class="breadcrumb" id="hwBreadcrumb"></div>
+        <div id="hwContent"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ICT SERVICES (quote-based) ================= -->
+  <section class="page" id="page-services">
+    <div class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">ICT Services</div>
+          <h2>Scoped, project-based technology work.</h2>
+          <p>These engagements are tailored to your organisation, so pricing is quoted rather than fixed. Tell us what
+            you need and we'll follow up.</p>
+        </div>
+        <div class="cards">
+          <div class="svc-card">
+            <h3>Software Development</h3>
+            <p>Custom ERP, HR, student, hospital, inventory and financial management systems, plus web, mobile and
+              desktop applications.</p><button class="quote-btn" onclick="openQuote('Software Development')">Request a
+              quote</button>
+          </div>
+          <div class="svc-card">
+            <h3>Artificial Intelligence Solutions</h3>
+            <p>AI chatbots, business assistants, predictive analytics, and workflow automation.</p><button
+              class="quote-btn" onclick="openQuote('Artificial Intelligence Solutions')">Request a quote</button>
+          </div>
+          <div class="svc-card">
+            <h3>ICT Infrastructure &amp; Networking</h3>
+            <p>Network design, structured cabling, server installation, and data centre solutions.</p><button
+              class="quote-btn" onclick="openQuote('ICT Infrastructure & Networking')">Request a quote</button>
+          </div>
+          <div class="svc-card">
+            <h3>Cybersecurity</h3>
+            <p>Vulnerability assessments, penetration testing, firewall configuration and security training.</p><button
+              class="quote-btn" onclick="openQuote('Cybersecurity')">Request a quote</button>
+          </div>
+          <div class="svc-card">
+            <h3>Cloud Solutions</h3>
+            <p>Migration and management across Azure, AWS and Google Cloud, plus backup and disaster recovery.</p>
+            <button class="quote-btn" onclick="openQuote('Cloud Solutions')">Request a quote</button>
+          </div>
+          <div class="svc-card">
+            <h3>ICT Consultancy</h3>
+            <p>Strategy development, digital transformation roadmaps, systems analysis and ICT audits.</p><button
+              class="quote-btn" onclick="openQuote('ICT Consultancy')">Request a quote</button>
+          </div>
+          <div class="svc-card">
+            <h3>Managed ICT Services</h3>
+            <p>Help desk, remote and on-site support, server and network administration, and maintenance contracts.</p>
+            <button class="quote-btn" onclick="openQuote('Managed ICT Services')">Request a quote</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CART / CHECKOUT ================= -->
+  <section class="page" id="page-cart">
+    <div class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Your order</div>
+          <h2>Cart &amp; checkout</h2>
+        </div>
+        <div id="cartEmpty" class="cart-empty">
+          <p>Your cart is empty. Browse <a href="#" onclick="showPage('domains');return false;">domains</a>, <a href="#"
+              onclick="showPage('hosting');return false;">email hosting</a>, or <a href="#"
+              onclick="showPage('hardware');return false;">hardware</a> to get started.</p>
+        </div>
+        <div id="cartFull" style="display:none;">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="cartRows"></tbody>
+          </table>
+          <div class="cart-summary">
+            <div class="total">Total: $<span id="cartTotal">0</span></div>
+          </div>
+
+          <div class="checkout-box">
+            <h3 style="font-size:18px;">Checkout details</h3>
+            <label>Full name</label>
+            <input type="text" id="coName" placeholder="Your name">
+            <label>Email</label>
+            <input type="email" id="coEmail" placeholder="you@business.co.zw">
+            <label>Phone</label>
+            <input type="text" id="coPhone" placeholder="+263 7XX XXX XXX">
+            <label>Company (for .co.zw domains &amp; invoicing)</label>
+            <input type="text" id="coCompany" placeholder="Optional">
+            <button class="submit-btn" onclick="submitCheckout()">Place order</button>
+          </div>
+        </div>
+        <div id="cartConfirm" style="display:none;">
+          <div class="checkout-box" style="text-align:center;">
+            <h3>Order received — thank you</h3>
+            <p id="confirmSummary" style="color:var(--muted-text);font-size:14px;margin-top:10px;line-height:1.6;"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div class="trust">
     <div class="wrap trust-row">
-      <div class="trust-item"><b>Government &amp; Education</b>&nbsp;trusted across public and private sectors</div>
-      <div class="trust-item"><b>Healthcare &amp; Finance</b>&nbsp;secure systems for regulated industries</div>
-      <div class="trust-item"><b>SMEs &amp; NGOs</b>&nbsp;affordable, scalable technology support</div>
+      <div class="trust-item"><b>ZISPA-aligned</b>&nbsp;registration for .co.zw, .org.zw &amp; .ac.zw</div>
+      <div class="trust-item"><b>Global reach</b>&nbsp;.com, .net, .africa &amp; more</div>
+      <div class="trust-item"><b>One partner</b>&nbsp;for domains, hosting, hardware &amp; ICT services</div>
     </div>
   </div>
-</section>
 
-<!-- ================= DOMAINS ================= -->
-<section class="page" id="page-domains">
-  <div class="section" style="padding-bottom:20px;">
+  <footer>
     <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Domains</div>
-        <h2>Your domain. Your email. Your control.</h2>
-        <p>Search .co.zw and international extensions side by side, with live pricing and clear notes on what needs registry review.</p>
-      </div>
-
-      <div class="search-card">
-        <div class="search-card-head">
-          <span class="label">Domain availability search</span>
-          <span class="badge">KZW</span>
+      <div class="foot-grid">
+        <div class="foot-col">
+          <svg viewBox="0 0 300 80" width="150" height="40" xmlns="http://www.w3.org/2000/svg" overflow="hidden">
+            <rect x="6" y="6" rx="8" width="48" height="68" fill="#FFFFFF" />
+            <path d="M38 18 58 40 38 62" stroke="#0F3F7A" stroke-width="6" stroke-linecap="round" fill="none" />
+            <text fill="#FFFFFF" font-family="Inter,Roboto,Arial" font-weight="700" font-size="32" x="80"
+              y="50">Kuber</text>
+          </svg>
+          <p style="font-size:13px;color:#8FB3DD;margin-top:14px;max-width:240px;line-height:1.6;">Kuber Intelligent
+            Tech Systems (Pvt) Ltd — Empowering Smart Business Growth.</p>
         </div>
-        <div class="search-card-body">
-          <div class="search-row">
-            <input type="text" id="domainInput" placeholder="yourbusiness" autocomplete="off">
-            <button id="searchBtn">Check availability</button>
-          </div>
-          <div class="tld-chips" id="tldChips">
-            <button class="chip active" data-tld=".co.zw">.co.zw</button>
-            <button class="chip" data-tld=".org.zw">.org.zw</button>
-            <button class="chip active" data-tld=".com">.com</button>
-            <button class="chip" data-tld=".net">.net</button>
-            <button class="chip" data-tld=".africa">.africa</button>
-            <button class="chip" data-tld=".co.za">.co.za</button>
-          </div>
+        <div class="foot-col">
+          <h4>Store</h4>
+          <button class="navlink2" onclick="showPage('domains')">Domains</button>
+          <button class="navlink2" onclick="showPage('hosting')">Email hosting</button>
+          <button class="navlink2" onclick="showPage('hardware')">Hardware &amp; accessories</button>
+          <button class="navlink2" onclick="showPage('services')">ICT services</button>
         </div>
-      </div>
-
-      <div id="domResults" class="hidden">
-        <div class="cat-label" id="domResultsLabel">Results</div>
-        <div class="cards" id="domCards"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" style="padding-top:0;">
-    <div class="wrap">
-      <div class="cat-label">Pricing snapshot</div>
-      <table class="cart-table">
-        <thead><tr><th>Extension</th><th>Per year</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>.co.zw</td><td>$5.00</td><td>ZISPA review, 24–72 hrs — company/ID details required</td></tr>
-          <tr><td>.org.zw</td><td>$6.00</td><td>For registered organisations and NGOs</td></tr>
-          <tr><td>.com</td><td>$25.00</td><td>Instant registration</td></tr>
-          <tr><td>.org</td><td>$25.00</td><td>Instant registration</td></tr>
-          <tr><td>.net</td><td>$20.00</td><td>Instant registration</td></tr>
-          <tr><td>.africa</td><td>$22.00</td><td>Instant registration</td></tr>
-          <tr><td>.co.za</td><td>$18.00</td><td>Instant registration</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ================= EMAIL HOSTING ================= -->
-<section class="page" id="page-hosting">
-  <div class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Email Hosting</div>
-        <h2>Business email that looks as professional as your business is.</h2>
-        <p>Secure mailboxes on your own domain, with migration support and local help when you need it.</p>
-      </div>
-      <div class="cards">
-        <div class="card">
-          <h3>Basic</h3>
-          <div class="price">$5<span> /mailbox/mo</span></div>
-          <ul>
-            <li>5 mailboxes, 8GB each</li>
-            <li>Webmail &amp; mobile access</li>
-            <li>Spam &amp; virus filtering</li>
-            <li>Standard support</li>
-          </ul>
-          <button class="add-btn" onclick="addToCart({id:'host-basic',type:'Email Hosting',label:'Basic Email Hosting Plan',price:5})">Add to cart</button>
+        <div class="foot-col">
+          <h4>Company</h4>
+          <a href="https://www.kuber.co.zw">Main site</a>
+          <a href="mailto:info@kuber.co.zw">info@kuber.co.zw</a>
+          <a href="mailto:sales@kuber.co.zw">sales@kuber.co.zw</a>
+          <a href="mailto:support@kuber.co.zw">support@kuber.co.zw</a>
         </div>
-        <div class="card featured">
-          <h3>Business</h3>
-          <div class="price">$12<span> /mailbox/mo</span></div>
-          <ul>
-            <li>25 mailboxes, 25GB each</li>
-            <li>Shared calendar &amp; contacts</li>
-            <li>Migration assistance included</li>
-            <li>Priority support</li>
-          </ul>
-          <button class="add-btn" onclick="addToCart({id:'host-business',type:'Email Hosting',label:'Business Email Hosting Plan',price:12})">Add to cart</button>
-        </div>
-        <div class="card">
-          <h3>Enterprise</h3>
-          <div class="price">$29<span> /mailbox/mo</span></div>
-          <ul>
-            <li>Unlimited mailboxes, 50GB each</li>
-            <li>Admin console &amp; policy controls</li>
-            <li>SLA-backed support</li>
-            <li>Dedicated onboarding</li>
-          </ul>
-          <button class="add-btn" onclick="addToCart({id:'host-enterprise',type:'Email Hosting',label:'Enterprise Email Hosting Plan',price:29})">Add to cart</button>
+        <div class="foot-col">
+          <h4>Procurement</h4>
+          <a href="mailto:tenders@kuber.co.zw">tenders@kuber.co.zw</a>
+          <a href="mailto:accounts@kuber.co.zw">accounts@kuber.co.zw</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= HARDWARE & ACCESSORIES ================= -->
-<section class="page" id="page-hardware">
-  <div class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Hardware &amp; Accessories</div>
-        <h2>Quality ICT equipment, sourced from reputable manufacturers.</h2>
-        <p>A starter catalog below — our full range covers computers, networking, security, power, accessories, and office supplies. Ask us for anything not listed.</p>
-      </div>
-
-      <div class="cat-label">Computers &amp; Laptops</div>
-      <div class="cards">
-        <div class="card"><h3>Business Laptop</h3><p class="desc">Core i5, 8GB RAM, 256GB SSD — ready for office work.</p><div class="price">$650</div><button class="add-btn" onclick="addToCart({id:'hw-laptop-i5',type:'Hardware',label:'Business Laptop (i5/8GB/256GB)',price:650})">Add to cart</button></div>
-        <div class="card"><h3>Desktop Workstation</h3><p class="desc">Core i7, 16GB RAM, 512GB SSD — for demanding workloads.</p><div class="price">$780</div><button class="add-btn" onclick="addToCart({id:'hw-desktop-i7',type:'Hardware',label:'Desktop Workstation (i7/16GB/512GB)',price:780})">Add to cart</button></div>
-        <div class="card"><h3>All-in-One Office PC</h3><p class="desc">Compact, low-footprint PC for reception and admin desks.</p><div class="price">$590</div><button class="add-btn" onclick="addToCart({id:'hw-aio',type:'Hardware',label:'All-in-One Office PC',price:590})">Add to cart</button></div>
-      </div>
-
-      <div class="cat-label">Servers &amp; Networking</div>
-      <div class="cards">
-        <div class="card"><h3>Tower Server</h3><p class="desc">Xeon processor, 32GB RAM — for on-premise workloads.</p><div class="price">$2,400</div><button class="add-btn" onclick="addToCart({id:'hw-server',type:'Hardware',label:'Tower Server (Xeon/32GB)',price:2400})">Add to cart</button></div>
-        <div class="card"><h3>24-Port Network Switch</h3><p class="desc">Managed switch for office and enterprise networks.</p><div class="price">$310</div><button class="add-btn" onclick="addToCart({id:'hw-switch',type:'Hardware',label:'24-Port Network Switch',price:310})">Add to cart</button></div>
-        <div class="card"><h3>Wireless Access Point</h3><p class="desc">Dual-band AP for reliable office Wi-Fi coverage.</p><div class="price">$95</div><button class="add-btn" onclick="addToCart({id:'hw-ap',type:'Hardware',label:'Wireless Access Point',price:95})">Add to cart</button></div>
-      </div>
-
-      <div class="cat-label">Security &amp; Surveillance</div>
-      <div class="cards">
-        <div class="card"><h3>4-Channel CCTV Kit</h3><p class="desc">Cameras, DVR and cabling for small-site coverage.</p><div class="price">$420</div><button class="add-btn" onclick="addToCart({id:'hw-cctv',type:'Hardware',label:'4-Channel CCTV Kit',price:420})">Add to cart</button></div>
-        <div class="card"><h3>Biometric Access Control</h3><p class="desc">Fingerprint access unit for secure entry points.</p><div class="price">$260</div><button class="add-btn" onclick="addToCart({id:'hw-biometric',type:'Hardware',label:'Biometric Access Control Unit',price:260})">Add to cart</button></div>
-        <div class="card"><h3>Firewall Appliance</h3><p class="desc">Dedicated hardware firewall for network protection.</p><div class="price">$580</div><button class="add-btn" onclick="addToCart({id:'hw-firewall',type:'Hardware',label:'Firewall Appliance',price:580})">Add to cart</button></div>
-      </div>
-
-      <div class="cat-label">Power &amp; Energy</div>
-      <div class="cards">
-        <div class="card"><h3>5kVA Solar Inverter</h3><p class="desc">Reliable backup power for offices and small sites.</p><div class="price">$890</div><button class="add-btn" onclick="addToCart({id:'hw-inverter',type:'Hardware',label:'5kVA Solar Inverter',price:890})">Add to cart</button></div>
-        <div class="card"><h3>Lithium Battery 100Ah</h3><p class="desc">Long-life battery for solar and backup power systems.</p><div class="price">$560</div><button class="add-btn" onclick="addToCart({id:'hw-battery',type:'Hardware',label:'Lithium Battery 100Ah',price:560})">Add to cart</button></div>
-        <div class="card"><h3>1000VA UPS</h3><p class="desc">Short-term backup power for desktops and networking gear.</p><div class="price">$110</div><button class="add-btn" onclick="addToCart({id:'hw-ups',type:'Hardware',label:'1000VA UPS',price:110})">Add to cart</button></div>
-      </div>
-
-      <div class="cat-label">Accessories</div>
-      <div class="cards">
-        <div class="card"><h3>Wireless Keyboard &amp; Mouse</h3><p class="desc">Combo set for office desktops.</p><div class="price">$28</div><button class="add-btn" onclick="addToCart({id:'hw-kbm',type:'Hardware',label:'Wireless Keyboard & Mouse Combo',price:28})">Add to cart</button></div>
-        <div class="card"><h3>USB-C Docking Station</h3><p class="desc">Single-cable connection for laptop workstations.</p><div class="price">$65</div><button class="add-btn" onclick="addToCart({id:'hw-dock',type:'Hardware',label:'USB-C Docking Station',price:65})">Add to cart</button></div>
-        <div class="card"><h3>1TB External HDD</h3><p class="desc">Portable backup storage.</p><div class="price">$58</div><button class="add-btn" onclick="addToCart({id:'hw-hdd',type:'Hardware',label:'1TB External HDD',price:58})">Add to cart</button></div>
-        <div class="card"><h3>HD Webcam</h3><p class="desc">1080p webcam for meetings and calls.</p><div class="price">$32</div><button class="add-btn" onclick="addToCart({id:'hw-webcam',type:'Hardware',label:'HD Webcam',price:32})">Add to cart</button></div>
-      </div>
-
-      <div class="cat-label">Office Supplies</div>
-      <div class="cards">
-        <div class="card"><h3>Bond Paper (Box of 5 reams)</h3><p class="desc">A4 bond paper for everyday printing.</p><div class="price">$22</div><button class="add-btn" onclick="addToCart({id:'hw-paper',type:'Hardware',label:'Bond Paper Box (5 reams)',price:22})">Add to cart</button></div>
-        <div class="card"><h3>Toner Cartridge</h3><p class="desc">Standard-yield toner, compatible with common office printers.</p><div class="price">$48</div><button class="add-btn" onclick="addToCart({id:'hw-toner',type:'Hardware',label:'Toner Cartridge (Standard)',price:48})">Add to cart</button></div>
-        <div class="card"><h3>Lever Arch Files (Pack of 10)</h3><p class="desc">Durable filing for records and administration.</p><div class="price">$18</div><button class="add-btn" onclick="addToCart({id:'hw-files',type:'Hardware',label:'Lever Arch Files (Pack of 10)',price:18})">Add to cart</button></div>
+      <div class="foot-bottom">
+        <span>© 2026 Kuber Intelligent Tech Systems (Pvt) Ltd, trading as Kuber Technologies.</span>
+        <span>.co.zw registrations are processed via an accredited ZISPA partner registrar.</span>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ================= ICT SERVICES (quote-based) ================= -->
-<section class="page" id="page-services">
-  <div class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">ICT Services</div>
-        <h2>Scoped, project-based technology work.</h2>
-        <p>These engagements are tailored to your organisation, so pricing is quoted rather than fixed. Tell us what you need and we'll follow up.</p>
-      </div>
-      <div class="cards">
-        <div class="svc-card"><h3>Software Development</h3><p>Custom ERP, HR, student, hospital, inventory and financial management systems, plus web, mobile and desktop applications.</p><button class="quote-btn" onclick="openQuote('Software Development')">Request a quote</button></div>
-        <div class="svc-card"><h3>Artificial Intelligence Solutions</h3><p>AI chatbots, business assistants, predictive analytics, and workflow automation.</p><button class="quote-btn" onclick="openQuote('Artificial Intelligence Solutions')">Request a quote</button></div>
-        <div class="svc-card"><h3>ICT Infrastructure &amp; Networking</h3><p>Network design, structured cabling, server installation, and data centre solutions.</p><button class="quote-btn" onclick="openQuote('ICT Infrastructure & Networking')">Request a quote</button></div>
-        <div class="svc-card"><h3>Cybersecurity</h3><p>Vulnerability assessments, penetration testing, firewall configuration and security training.</p><button class="quote-btn" onclick="openQuote('Cybersecurity')">Request a quote</button></div>
-        <div class="svc-card"><h3>Cloud Solutions</h3><p>Migration and management across Azure, AWS and Google Cloud, plus backup and disaster recovery.</p><button class="quote-btn" onclick="openQuote('Cloud Solutions')">Request a quote</button></div>
-        <div class="svc-card"><h3>ICT Consultancy</h3><p>Strategy development, digital transformation roadmaps, systems analysis and ICT audits.</p><button class="quote-btn" onclick="openQuote('ICT Consultancy')">Request a quote</button></div>
-        <div class="svc-card"><h3>Managed ICT Services</h3><p>Help desk, remote and on-site support, server and network administration, and maintenance contracts.</p><button class="quote-btn" onclick="openQuote('Managed ICT Services')">Request a quote</button></div>
-      </div>
+  <!-- domain reserve modal -->
+  <div class="modal-bg" id="domModalBg">
+    <div class="modal">
+      <button class="close" onclick="closeModal('domModalBg')">&times;</button>
+      <h3>Reserve this domain</h3>
+      <div class="sub" id="domModalName"></div>
+      <label id="domCompanyLabel" style="display:none;">Registered company / organisation name</label>
+      <input type="text" id="domCompany" placeholder="As it should appear on the registration" style="display:none;">
+      <button class="submit-btn" onclick="confirmDomainAdd()">Add to cart</button>
     </div>
   </div>
-</section>
 
-<!-- ================= CART / CHECKOUT ================= -->
-<section class="page" id="page-cart">
-  <div class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Your order</div>
-        <h2>Cart &amp; checkout</h2>
-      </div>
-      <div id="cartEmpty" class="cart-empty">
-        <p>Your cart is empty. Browse <a href="#" onclick="showPage('domains');return false;">domains</a>, <a href="#" onclick="showPage('hosting');return false;">email hosting</a>, or <a href="#" onclick="showPage('hardware');return false;">hardware</a> to get started.</p>
-      </div>
-      <div id="cartFull" style="display:none;">
-        <table class="cart-table">
-          <thead><tr><th>Item</th><th>Type</th><th>Price</th><th></th></tr></thead>
-          <tbody id="cartRows"></tbody>
-        </table>
-        <div class="cart-summary"><div class="total">Total: $<span id="cartTotal">0</span></div></div>
-
-        <div class="checkout-box">
-          <h3 style="font-size:18px;">Checkout details</h3>
-          <label>Full name</label>
-          <input type="text" id="coName" placeholder="Your name">
-          <label>Email</label>
-          <input type="email" id="coEmail" placeholder="you@business.co.zw">
-          <label>Phone</label>
-          <input type="text" id="coPhone" placeholder="+263 7XX XXX XXX">
-          <label>Company (for .co.zw domains &amp; invoicing)</label>
-          <input type="text" id="coCompany" placeholder="Optional">
-          <button class="submit-btn" onclick="submitCheckout()">Place order</button>
-        </div>
-      </div>
-      <div id="cartConfirm" style="display:none;">
-        <div class="checkout-box" style="text-align:center;">
-          <h3>Order received — thank you</h3>
-          <p id="confirmSummary" style="color:var(--muted-text);font-size:14px;margin-top:10px;line-height:1.6;"></p>
-        </div>
-      </div>
+  <!-- quote request modal -->
+  <div class="modal-bg" id="quoteModalBg">
+    <div class="modal">
+      <button class="close" onclick="closeModal('quoteModalBg')">&times;</button>
+      <h3>Request a quote</h3>
+      <div class="sub" id="quoteServiceName"></div>
+      <label>Full name</label>
+      <input type="text" id="qName" placeholder="Your name">
+      <label>Email</label>
+      <input type="email" id="qEmail" placeholder="you@business.co.zw">
+      <label>Phone</label>
+      <input type="text" id="qPhone" placeholder="+263 7XX XXX XXX">
+      <label>What do you need?</label>
+      <textarea id="qMessage" rows="3" placeholder="Briefly describe your requirements"></textarea>
+      <button class="submit-btn" onclick="submitQuote()">Send request</button>
     </div>
   </div>
-</section>
 
-<div class="trust">
-  <div class="wrap trust-row">
-    <div class="trust-item"><b>ZISPA-aligned</b>&nbsp;registration for .co.zw, .org.zw &amp; .ac.zw</div>
-    <div class="trust-item"><b>Global reach</b>&nbsp;.com, .net, .africa &amp; more</div>
-    <div class="trust-item"><b>One partner</b>&nbsp;for domains, hosting, hardware &amp; ICT services</div>
-  </div>
-</div>
+  <div class="toast" id="toast"></div>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-col">
-        <svg viewBox="0 0 300 80" width="150" height="40" xmlns="http://www.w3.org/2000/svg" overflow="hidden">
-          <rect x="6" y="6" rx="8" width="48" height="68" fill="#FFFFFF"/>
-          <path d="M38 18 58 40 38 62" stroke="#0F3F7A" stroke-width="6" stroke-linecap="round" fill="none"/>
-          <text fill="#FFFFFF" font-family="Inter,Roboto,Arial" font-weight="700" font-size="32" x="80" y="50">Kuber</text>
-        </svg>
-        <p style="font-size:13px;color:#8FB3DD;margin-top:14px;max-width:240px;line-height:1.6;">Kuber Intelligent Tech Systems (Pvt) Ltd — Empowering Smart Business Growth.</p>
-      </div>
-      <div class="foot-col">
-        <h4>Store</h4>
-        <button class="navlink2" onclick="showPage('domains')">Domains</button>
-        <button class="navlink2" onclick="showPage('hosting')">Email hosting</button>
-        <button class="navlink2" onclick="showPage('hardware')">Hardware &amp; accessories</button>
-        <button class="navlink2" onclick="showPage('services')">ICT services</button>
-      </div>
-      <div class="foot-col">
-        <h4>Company</h4>
-        <a href="https://www.kuber.co.zw">Main site</a>
-        <a href="mailto:info@kuber.co.zw">info@kuber.co.zw</a>
-        <a href="mailto:sales@kuber.co.zw">sales@kuber.co.zw</a>
-        <a href="mailto:support@kuber.co.zw">support@kuber.co.zw</a>
-      </div>
-      <div class="foot-col">
-        <h4>Procurement</h4>
-        <a href="mailto:tenders@kuber.co.zw">tenders@kuber.co.zw</a>
-        <a href="mailto:accounts@kuber.co.zw">accounts@kuber.co.zw</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 Kuber Intelligent Tech Systems (Pvt) Ltd, trading as Kuber Technologies.</span>
-      <span>.co.zw registrations are processed via an accredited ZISPA partner registrar.</span>
-    </div>
-  </div>
-</footer>
-
-<!-- domain reserve modal -->
-<div class="modal-bg" id="domModalBg">
-  <div class="modal">
-    <button class="close" onclick="closeModal('domModalBg')">&times;</button>
-    <h3>Reserve this domain</h3>
-    <div class="sub" id="domModalName"></div>
-    <label id="domCompanyLabel" style="display:none;">Registered company / organisation name</label>
-    <input type="text" id="domCompany" placeholder="As it should appear on the registration" style="display:none;">
-    <button class="submit-btn" onclick="confirmDomainAdd()">Add to cart</button>
-  </div>
-</div>
-
-<!-- quote request modal -->
-<div class="modal-bg" id="quoteModalBg">
-  <div class="modal">
-    <button class="close" onclick="closeModal('quoteModalBg')">&times;</button>
-    <h3>Request a quote</h3>
-    <div class="sub" id="quoteServiceName"></div>
-    <label>Full name</label>
-    <input type="text" id="qName" placeholder="Your name">
-    <label>Email</label>
-    <input type="email" id="qEmail" placeholder="you@business.co.zw">
-    <label>Phone</label>
-    <input type="text" id="qPhone" placeholder="+263 7XX XXX XXX">
-    <label>What do you need?</label>
-    <textarea id="qMessage" rows="3" placeholder="Briefly describe your requirements"></textarea>
-    <button class="submit-btn" onclick="submitQuote()">Send request</button>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<script>
-  /* ---------------- navigation ---------------- */
-  function showPage(id){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById('page-'+id).classList.add('active');
-    document.querySelectorAll('.navlink').forEach(n=>n.classList.toggle('active', n.dataset.page===id));
-    window.scrollTo({top:0,behavior:'instant'});
-    if (id === 'cart') renderCart();
-  }
-
-  /* ---------------- toast ---------------- */
-  let toastTimer;
-  function showToast(msg){
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(()=> t.classList.remove('show'), 2200);
-  }
-
-  /* ---------------- cart (in-memory — wire to a real backend for production) ---------------- */
-  let cart = [];
-
-  function addToCart(item){
-    if (cart.find(c=>c.id===item.id)){ showToast(item.label + ' is already in your cart'); return; }
-    cart.push(item);
-    document.getElementById('cartCount').textContent = cart.length;
-    showToast(item.label + ' added to cart');
-  }
-
-  function removeFromCart(id){
-    cart = cart.filter(c=>c.id!==id);
-    document.getElementById('cartCount').textContent = cart.length;
-    renderCart();
-  }
-
-  function renderCart(){
-    const rows = document.getElementById('cartRows');
-    const empty = document.getElementById('cartEmpty');
-    const full = document.getElementById('cartFull');
-    document.getElementById('cartConfirm').style.display = 'none';
-
-    if (cart.length === 0){
-      empty.style.display = 'block';
-      full.style.display = 'none';
-      return;
+  <script>
+    /* ---------------- navigation ---------------- */
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + id).classList.add('active');
+      document.querySelectorAll('.navlink').forEach(n => n.classList.toggle('active', n.dataset.page === id));
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      if (id === 'cart') renderCart();
+      if (id === 'hardware') hwShowCategories();
     }
-    empty.style.display = 'none';
-    full.style.display = 'block';
-    rows.innerHTML = '';
-    let total = 0;
-    cart.forEach(item=>{
-      total += item.price;
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td>${item.label}</td><td>${item.type}</td><td>$${item.price}</td><td><button class="rm" onclick="removeFromCart('${item.id}')">Remove</button></td>`;
-      rows.appendChild(tr);
-    });
-    document.getElementById('cartTotal').textContent = total.toFixed(2);
-  }
 
-  function submitCheckout(){
-    const name = document.getElementById('coName').value.trim();
-    const email = document.getElementById('coEmail').value.trim();
-    const phone = document.getElementById('coPhone').value.trim();
-    if (!name || !email || !phone){ alert('Please fill in your name, email and phone number.'); return; }
-
-    const orderNo = 'KUB-' + Math.floor(100000 + Math.random()*899999);
-    const hasLocalDomain = cart.some(c=> c.type==='Domain' && c.meta && c.meta.local);
-    document.getElementById('confirmSummary').innerHTML =
-      `Order <b>${orderNo}</b> for ${cart.length} item(s), total $${cart.reduce((s,c)=>s+c.price,0).toFixed(2)}, has been received. ` +
-      `We'll email <b>${email}</b> a secure payment link shortly.` +
-      (hasLocalDomain ? ' .co.zw domains in this order are subject to ZISPA verification (24–72 hrs) before they go live.' : '');
-
-    cart = [];
-    document.getElementById('cartCount').textContent = 0;
-    document.getElementById('cartFull').style.display = 'none';
-    document.getElementById('cartEmpty').style.display = 'none';
-    document.getElementById('cartConfirm').style.display = 'block';
-  }
-
-  function closeModal(id){ document.getElementById(id).classList.remove('open'); }
-
-  /* ---------------- domain search ---------------- */
-  const TAKEN = new Set(['kuber.co.zw','kuber.com','store.co.zw','shop.co.zw','bank.co.zw','google.com','shop.com','store.com','africa.com','zimbabwe.co.zw','info.co.zw']);
-  const PREMIUM_WORDS = new Set(['gold','forex','bank','cash','crypto','loan']);
-  const PRICES = {'.co.zw':15,'.org.zw':15,'.com':14,'.net':16,'.africa':22,'.co.za':18};
-  const LOCAL_TLDS = new Set(['.co.zw','.org.zw']);
-
-  function simpleHash(str){ let h=0; for(let i=0;i<str.length;i++){ h=(h*31+str.charCodeAt(i))>>>0; } return h; }
-  function checkDomain(name, tld){
-    const full = (name+tld).toLowerCase();
-    if (TAKEN.has(full)) return 'taken';
-    if (PREMIUM_WORDS.has(name.toLowerCase())) return 'premium';
-    return (simpleHash(full)%5===0) ? 'taken' : 'available';
-  }
-
-  document.querySelectorAll('#tldChips .chip').forEach(chip=>{
-    chip.addEventListener('click', ()=> chip.classList.toggle('active'));
-  });
-
-  function runDomainSearch(){
-    const raw = document.getElementById('domainInput').value.trim().toLowerCase();
-    const name = raw.replace(/[^a-z0-9-]/g,'');
-    if (!name){ document.getElementById('domainInput').focus(); return; }
-    const activeTlds = Array.from(document.querySelectorAll('#tldChips .chip.active')).map(c=>c.dataset.tld);
-    if (activeTlds.length===0){ alert('Select at least one extension.'); return; }
-
-    const cardsEl = document.getElementById('domCards');
-    cardsEl.innerHTML = '';
-    activeTlds.forEach(tld=>{
-      const status = checkDomain(name, tld);
-      const price = PRICES[tld];
-      const full = name+tld;
-      const card = document.createElement('div');
-      card.className = 'dcard ' + (status==='available'?'avail':status);
-      const noteHtml = LOCAL_TLDS.has(tld)
-        ? '<div class="note">Subject to ZISPA verification (24–72 hrs).</div>'
-        : '<div class="note">Instant registration on payment.</div>';
-      const statusLabel = status==='available' ? 'Available' : (status==='premium' ? 'Premium — available' : 'Taken');
-      const btnHtml = status==='taken'
-        ? '<button class="add-btn" disabled>Not available</button>'
-        : `<button class="add-btn" onclick="openDomainModal('${full}','${tld}')">Reserve · $${price}/yr</button>`;
-      card.innerHTML = `<div class="domain">${full}</div><div class="status">${statusLabel}</div>${noteHtml}${btnHtml}`;
-      cardsEl.appendChild(card);
-    });
-    document.getElementById('domResultsLabel').textContent = `Results for "${name}" (${activeTlds.length} checked)`;
-    document.getElementById('domResults').classList.remove('hidden');
-    document.getElementById('domResults').scrollIntoView({behavior:'smooth',block:'start'});
-  }
-  document.getElementById('searchBtn').addEventListener('click', runDomainSearch);
-  document.getElementById('domainInput').addEventListener('keydown', e=>{ if(e.key==='Enter') runDomainSearch(); });
-
-  let pendingDomain = null;
-  function openDomainModal(full, tld){
-    pendingDomain = {full, tld};
-    document.getElementById('domModalName').textContent = full;
-    const isLocal = LOCAL_TLDS.has(tld);
-    document.getElementById('domCompanyLabel').style.display = isLocal ? 'block' : 'none';
-    document.getElementById('domCompany').style.display = isLocal ? 'block' : 'none';
-    document.getElementById('domModalBg').classList.add('open');
-  }
-  function confirmDomainAdd(){
-    if (!pendingDomain) return;
-    const isLocal = LOCAL_TLDS.has(pendingDomain.tld);
-    if (isLocal && !document.getElementById('domCompany').value.trim()){
-      alert('Please enter the registered company/organisation name for local domains.');
-      return;
+    /* ---------------- toast ---------------- */
+    let toastTimer;
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
     }
-    addToCart({
-      id:'dom-'+pendingDomain.full, type:'Domain', label:pendingDomain.full,
-      price:PRICES[pendingDomain.tld], meta:{local:isLocal, company:document.getElementById('domCompany').value.trim()}
-    });
-    closeModal('domModalBg');
-    document.getElementById('domCompany').value='';
-  }
 
-  /* ---------------- quote requests ---------------- */
-  let pendingService = null;
-  function openQuote(service){
-    pendingService = service;
-    document.getElementById('quoteServiceName').textContent = service;
-    document.getElementById('quoteModalBg').classList.add('open');
-  }
-  function submitQuote(){
-    const name = document.getElementById('qName').value.trim();
-    const email = document.getElementById('qEmail').value.trim();
-    const phone = document.getElementById('qPhone').value.trim();
-    if (!name || !email || !phone){ alert('Please fill in your name, email and phone number.'); return; }
-    closeModal('quoteModalBg');
-    ['qName','qEmail','qPhone','qMessage'].forEach(id=> document.getElementById(id).value='');
-    showToast('Quote request for ' + pendingService + ' sent — we\'ll be in touch');
-  }
-</script>
+    /* ---------------- cart (in-memory — wire to a real backend for production) ---------------- */
+    let cart = [];
+
+    function addToCart(item, qty) {
+      qty = qty || 1;
+      const existing = cart.find(c => c.id === item.id);
+      if (existing) {
+        if (item.type === 'Hardware') { existing.qty += qty; showToast(item.label + ' quantity updated in cart'); }
+        else { showToast(item.label + ' is already in your cart'); }
+        renderCart();
+        return;
+      }
+      cart.push(Object.assign({ qty: qty }, item));
+      document.getElementById('cartCount').textContent = cart.reduce((s, c) => s + c.qty, 0);
+      showToast(item.label + ' added to cart');
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(c => c.id !== id);
+      document.getElementById('cartCount').textContent = cart.reduce((s, c) => s + c.qty, 0);
+      renderCart();
+    }
+
+    function renderCart() {
+      const rows = document.getElementById('cartRows');
+      const empty = document.getElementById('cartEmpty');
+      const full = document.getElementById('cartFull');
+      document.getElementById('cartConfirm').style.display = 'none';
+
+      if (cart.length === 0) {
+        empty.style.display = 'block';
+        full.style.display = 'none';
+        return;
+      }
+      empty.style.display = 'none';
+      full.style.display = 'block';
+      rows.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        const lineTotal = item.price * item.qty;
+        total += lineTotal;
+        const tr = document.createElement('tr');
+        const qtyLabel = item.qty > 1 ? ` × ${item.qty}` : '';
+        tr.innerHTML = `<td>${item.label}${qtyLabel}</td><td>${item.type}</td><td>$${lineTotal.toFixed(2)}</td><td><button class="rm" onclick="removeFromCart('${item.id}')">Remove</button></td>`;
+        rows.appendChild(tr);
+      });
+      document.getElementById('cartTotal').textContent = total.toFixed(2);
+    }
+
+    function submitCheckout() {
+      const name = document.getElementById('coName').value.trim();
+      const email = document.getElementById('coEmail').value.trim();
+      const phone = document.getElementById('coPhone').value.trim();
+      if (!name || !email || !phone) { alert('Please fill in your name, email and phone number.'); return; }
+
+      const orderNo = 'KUB-' + Math.floor(100000 + Math.random() * 899999);
+      const hasLocalDomain = cart.some(c => c.type === 'Domain' && c.meta && c.meta.local);
+      document.getElementById('confirmSummary').innerHTML =
+        `Order <b>${orderNo}</b> for ${cart.reduce((s, c) => s + c.qty, 0)} item(s), total $${cart.reduce((s, c) => s + c.price * c.qty, 0).toFixed(2)}, has been received. ` +
+        `We'll email <b>${email}</b> a secure payment link shortly.` +
+        (hasLocalDomain ? ' .co.zw domains in this order are subject to ZISPA verification (24–72 hrs) before they go live.' : '');
+
+      cart = [];
+      document.getElementById('cartCount').textContent = 0;
+      document.getElementById('cartFull').style.display = 'none';
+      document.getElementById('cartEmpty').style.display = 'none';
+      document.getElementById('cartConfirm').style.display = 'block';
+    }
+
+    function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+    /* ---------------- hardware catalog (Amazon-style: categories -> products -> detail) ---------------- */
+    const HW_CATALOG = {
+      computers: {
+        name: 'Computers & Laptops', icon: '💻', desc: 'Laptops, desktops and workstations for office and field use.', products: [
+          { id: 'hw-laptop-i5', name: 'Business Laptop', icon: '💻', price: 650, desc: 'A reliable everyday laptop for office work, email and business applications.', specs: ['Intel Core i5 processor', '8GB RAM', '256GB SSD storage', '14" display', '1 year warranty'] },
+          { id: 'hw-desktop-i7', name: 'Desktop Workstation', icon: '🖥️', price: 780, desc: 'A powerful desktop for demanding workloads like design, engineering or data work.', specs: ['Intel Core i7 processor', '16GB RAM', '512GB SSD storage', 'Dedicated graphics-ready', '1 year warranty'] },
+          { id: 'hw-aio', name: 'All-in-One Office PC', icon: '🖥️', price: 590, desc: 'A compact, low-footprint PC ideal for reception desks and admin workstations.', specs: ['Intel Core i3 processor', '8GB RAM', '256GB SSD storage', '21.5" integrated display'] },
+        ]
+      },
+      networking: {
+        name: 'Servers & Networking', icon: '🛰️', desc: 'Servers, switches and access points for office and enterprise networks.', products: [
+          { id: 'hw-server', name: 'Tower Server', icon: '🗄️', price: 2400, desc: 'An on-premise tower server for hosting internal applications and file storage.', specs: ['Intel Xeon processor', '32GB RAM', '2x 1TB HDD (RAID-ready)', 'Redundant power option'] },
+          { id: 'hw-switch', name: '24-Port Network Switch', icon: '🔌', price: 310, desc: 'A managed switch for structuring office and enterprise networks.', specs: ['24x Gigabit Ethernet ports', 'Managed / VLAN support', 'Rack-mountable'] },
+          { id: 'hw-ap', name: 'Wireless Access Point', icon: '📶', price: 95, desc: 'A dual-band access point for reliable office Wi-Fi coverage.', specs: ['802.11ac dual-band', 'PoE powered', 'Supports 50+ concurrent devices'] },
+        ]
+      },
+      security: {
+        name: 'Security & Surveillance', icon: '🛡️', desc: 'CCTV, access control and network security equipment.', products: [
+          { id: 'hw-cctv', name: '4-Channel CCTV Kit', icon: '📷', price: 420, desc: 'A complete surveillance kit for small offices and retail sites.', specs: ['4x HD cameras', '4-channel DVR', '1TB storage included', 'Night vision'] },
+          { id: 'hw-biometric', name: 'Biometric Access Control', icon: '🖐️', price: 260, desc: 'Fingerprint-based access control for secure entry points.', specs: ['Fingerprint + PIN entry', 'Up to 1,000 users', 'Time & attendance logging'] },
+          { id: 'hw-firewall', name: 'Firewall Appliance', icon: '🧱', price: 580, desc: 'Dedicated hardware firewall for perimeter network protection.', specs: ['Gigabit throughput', 'VPN support', 'Intrusion detection'] },
+        ]
+      },
+      power: {
+        name: 'Power & Energy', icon: '🔋', desc: 'Solar, battery and UPS solutions for uninterrupted operations.', products: [
+          { id: 'hw-inverter', name: '5kVA Solar Inverter', icon: '☀️', price: 890, desc: 'A solar inverter sized for small office backup power needs.', specs: ['5kVA capacity', 'Pure sine wave output', 'Solar + grid input'] },
+          { id: 'hw-battery', name: 'Lithium Battery 100Ah', icon: '🔋', price: 560, desc: 'A long-life lithium battery for solar and backup power systems.', specs: ['100Ah capacity', 'Long cycle life', 'Built-in BMS protection'] },
+          { id: 'hw-ups', name: '1000VA UPS', icon: '🔌', price: 110, desc: 'Short-term backup power to protect desktops and networking gear.', specs: ['1000VA / 600W', 'Automatic voltage regulation', '4 battery-backed outlets'] },
+        ]
+      },
+      accessories: {
+        name: 'Accessories', icon: '🎧', desc: 'Everyday peripherals for office desks.', products: [
+          { id: 'hw-kbm', name: 'Wireless Keyboard & Mouse', icon: '⌨️', price: 28, desc: 'A comfortable wireless combo for office desktops.', specs: ['2.4GHz wireless', 'Long battery life'] },
+          { id: 'hw-dock', name: 'USB-C Docking Station', icon: '🔗', price: 65, desc: 'Single-cable connection for laptop workstations.', specs: ['HDMI + USB-C + USB-A ports', 'Supports dual monitors'] },
+          { id: 'hw-hdd', name: '1TB External HDD', icon: '💾', price: 58, desc: 'Portable storage for backups and file transfer.', specs: ['1TB capacity', 'USB 3.0'] },
+          { id: 'hw-webcam', name: 'HD Webcam', icon: '📹', price: 32, desc: 'A 1080p webcam for meetings and video calls.', specs: ['1080p resolution', 'Built-in microphone'] },
+        ]
+      },
+      office: {
+        name: 'Office Supplies', icon: '🗂️', desc: 'Everyday consumables to keep the office running.', products: [
+          { id: 'hw-paper', name: 'Bond Paper (Box of 5 reams)', icon: '📄', price: 22, desc: 'A4 bond paper for everyday printing.', specs: ['5 reams per box', '80gsm'] },
+          { id: 'hw-toner', name: 'Toner Cartridge', icon: '🖨️', price: 48, desc: 'Standard-yield toner compatible with common office printers.', specs: ['Standard yield', 'Compatible with most laser printers'] },
+          { id: 'hw-files', name: 'Lever Arch Files (Pack of 10)', icon: '🗃️', price: 18, desc: 'Durable filing for records and administration.', specs: ['10 files per pack', 'A4 size'] },
+        ]
+      },
+    };
+
+    let hwView = { level: 'categories', cat: null, prod: null };
+
+    function hwShowCategories() {
+      hwView = { level: 'categories', cat: null, prod: null };
+      renderHardware();
+    }
+    function hwShowCategory(catKey) {
+      hwView = { level: 'category', cat: catKey, prod: null };
+      renderHardware();
+    }
+    function hwShowProduct(catKey, prodId) {
+      hwView = { level: 'product', cat: catKey, prod: prodId };
+      hwQty = 1;
+      renderHardware();
+    }
+
+    let hwQty = 1;
+    function hwChangeQty(delta) {
+      hwQty = Math.max(1, hwQty + delta);
+      document.getElementById('hwQtyVal').textContent = hwQty;
+    }
+
+    function renderHardware() {
+      const bc = document.getElementById('hwBreadcrumb');
+      const content = document.getElementById('hwContent');
+      const heading = document.getElementById('hwHeading');
+      const subhead = document.getElementById('hwSubhead');
+
+      if (hwView.level === 'categories') {
+        heading.textContent = 'Quality ICT equipment, sourced from reputable manufacturers.';
+        subhead.textContent = 'Browse by category — a starter range below, with more available on request.';
+        bc.innerHTML = '<span class="current">All categories</span>';
+        let html = '<div class="subcat-grid">';
+        Object.keys(HW_CATALOG).forEach(key => {
+          const c = HW_CATALOG[key];
+          html += `<div class="subcat-card" onclick="hwShowCategory('${key}')">
+          <div class="icon">${c.icon}</div>
+          <h3>${c.name}</h3>
+          <p>${c.desc}</p>
+          <div class="count">${c.products.length} products →</div>
+        </div>`;
+        });
+        html += '</div>';
+        content.innerHTML = html;
+        return;
+      }
+
+      if (hwView.level === 'category') {
+        const c = HW_CATALOG[hwView.cat];
+        heading.textContent = c.name;
+        subhead.textContent = c.desc;
+        bc.innerHTML = `<button onclick="hwShowCategories()">Hardware</button><span class="sep">/</span><span class="current">${c.name}</span>`;
+        let html = '<div class="cards">';
+        c.products.forEach(p => {
+          html += `<div class="card prod-card" onclick="hwShowProduct('${hwView.cat}','${p.id}')">
+          <div class="thumb">${p.icon}</div>
+          <h3>${p.name}</h3>
+          <div class="price">$${p.price.toLocaleString()}</div>
+          <button class="add-btn" onclick="event.stopPropagation(); addToCart({id:'${p.id}', type:'Hardware', label:'${p.name.replace(/'/g, "\\'")}', price:${p.price}})">Add to cart</button>
+        </div>`;
+        });
+        html += '</div>';
+        content.innerHTML = html;
+        return;
+      }
+
+      if (hwView.level === 'product') {
+        const c = HW_CATALOG[hwView.cat];
+        const p = c.products.find(x => x.id === hwView.prod);
+        heading.textContent = p.name;
+        subhead.textContent = '';
+        bc.innerHTML = `<button onclick="hwShowCategories()">Hardware</button><span class="sep">/</span><button onclick="hwShowCategory('${hwView.cat}')">${c.name}</button><span class="sep">/</span><span class="current">${p.name}</span>`;
+        content.innerHTML = `<div class="prod-detail">
+        <div class="thumb-lg">${p.icon}</div>
+        <div class="info">
+          <h2>${p.name}</h2>
+          <div class="price">$${p.price.toLocaleString()}</div>
+          <p class="desc">${p.desc}</p>
+          <ul class="specs">${p.specs.map(s => `<li>${s}</li>`).join('')}</ul>
+          <div class="qty-row">
+            <button onclick="hwChangeQty(-1)">−</button>
+            <span id="hwQtyVal">1</span>
+            <button onclick="hwChangeQty(1)">+</button>
+          </div>
+          <button class="btn" style="margin-top:18px;" onclick="hwAddDetailToCart('${hwView.cat}','${p.id}')">Add to cart</button>
+        </div>
+      </div>`;
+        return;
+      }
+    }
+
+    function hwAddDetailToCart(catKey, prodId) {
+      const p = HW_CATALOG[catKey].products.find(x => x.id === prodId);
+      addToCart({ id: p.id, type: 'Hardware', label: p.name, price: p.price }, hwQty);
+    }
+
+    renderHardware();
+
+    /* ---------------- domain search ---------------- */
+    const TAKEN = new Set(['kuber.co.zw', 'kuber.com', 'store.co.zw', 'shop.co.zw', 'bank.co.zw', 'google.com', 'shop.com', 'store.com', 'africa.com', 'zimbabwe.co.zw', 'info.co.zw']);
+    const PREMIUM_WORDS = new Set(['gold', 'forex', 'bank', 'cash', 'crypto', 'loan']);
+    const PRICES = { '.co.zw': 15, '.org.zw': 15, '.com': 14, '.net': 16, '.africa': 22, '.co.za': 18 };
+    const LOCAL_TLDS = new Set(['.co.zw', '.org.zw']);
+
+    function simpleHash(str) { let h = 0; for (let i = 0; i < str.length; i++) { h = (h * 31 + str.charCodeAt(i)) >>> 0; } return h; }
+    function checkDomain(name, tld) {
+      const full = (name + tld).toLowerCase();
+      if (TAKEN.has(full)) return 'taken';
+      if (PREMIUM_WORDS.has(name.toLowerCase())) return 'premium';
+      return (simpleHash(full) % 5 === 0) ? 'taken' : 'available';
+    }
+
+    document.querySelectorAll('#tldChips .chip').forEach(chip => {
+      chip.addEventListener('click', () => chip.classList.toggle('active'));
+    });
+
+    function runDomainSearch() {
+      const raw = document.getElementById('domainInput').value.trim().toLowerCase();
+      const name = raw.replace(/[^a-z0-9-]/g, '');
+      if (!name) { document.getElementById('domainInput').focus(); return; }
+      const activeTlds = Array.from(document.querySelectorAll('#tldChips .chip.active')).map(c => c.dataset.tld);
+      if (activeTlds.length === 0) { alert('Select at least one extension.'); return; }
+
+      const cardsEl = document.getElementById('domCards');
+      cardsEl.innerHTML = '';
+      activeTlds.forEach(tld => {
+        const status = checkDomain(name, tld);
+        const price = PRICES[tld];
+        const full = name + tld;
+        const card = document.createElement('div');
+        card.className = 'dcard ' + (status === 'available' ? 'avail' : status);
+        const noteHtml = LOCAL_TLDS.has(tld)
+          ? '<div class="note">Subject to ZISPA verification (24–72 hrs).</div>'
+          : '<div class="note">Instant registration on payment.</div>';
+        const statusLabel = status === 'available' ? 'Available' : (status === 'premium' ? 'Premium — available' : 'Taken');
+        const btnHtml = status === 'taken'
+          ? '<button class="add-btn" disabled>Not available</button>'
+          : `<button class="add-btn" onclick="openDomainModal('${full}','${tld}')">Reserve · $${price}/yr</button>`;
+        card.innerHTML = `<div class="domain">${full}</div><div class="status">${statusLabel}</div>${noteHtml}${btnHtml}`;
+        cardsEl.appendChild(card);
+      });
+      document.getElementById('domResultsLabel').textContent = `Results for "${name}" (${activeTlds.length} checked)`;
+      document.getElementById('domResults').classList.remove('hidden');
+      document.getElementById('domResults').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    document.getElementById('searchBtn').addEventListener('click', runDomainSearch);
+    document.getElementById('domainInput').addEventListener('keydown', e => { if (e.key === 'Enter') runDomainSearch(); });
+
+    let pendingDomain = null;
+    function openDomainModal(full, tld) {
+      pendingDomain = { full, tld };
+      document.getElementById('domModalName').textContent = full;
+      const isLocal = LOCAL_TLDS.has(tld);
+      document.getElementById('domCompanyLabel').style.display = isLocal ? 'block' : 'none';
+      document.getElementById('domCompany').style.display = isLocal ? 'block' : 'none';
+      document.getElementById('domModalBg').classList.add('open');
+    }
+    function confirmDomainAdd() {
+      if (!pendingDomain) return;
+      const isLocal = LOCAL_TLDS.has(pendingDomain.tld);
+      if (isLocal && !document.getElementById('domCompany').value.trim()) {
+        alert('Please enter the registered company/organisation name for local domains.');
+        return;
+      }
+      addToCart({
+        id: 'dom-' + pendingDomain.full, type: 'Domain', label: pendingDomain.full,
+        price: PRICES[pendingDomain.tld], meta: { local: isLocal, company: document.getElementById('domCompany').value.trim() }
+      });
+      closeModal('domModalBg');
+      document.getElementById('domCompany').value = '';
+    }
+
+    /* ---------------- quote requests ---------------- */
+    let pendingService = null;
+    function openQuote(service) {
+      pendingService = service;
+      document.getElementById('quoteServiceName').textContent = service;
+      document.getElementById('quoteModalBg').classList.add('open');
+    }
+    function submitQuote() {
+      const name = document.getElementById('qName').value.trim();
+      const email = document.getElementById('qEmail').value.trim();
+      const phone = document.getElementById('qPhone').value.trim();
+      if (!name || !email || !phone) { alert('Please fill in your name, email and phone number.'); return; }
+      closeModal('quoteModalBg');
+      ['qName', 'qEmail', 'qPhone', 'qMessage'].forEach(id => document.getElementById(id).value = '');
+      showToast('Quote request for ' + pendingService + ' sent — we\'ll be in touch');
+    }
+  </script>
 </body>
+
 </html>
